@@ -2,20 +2,21 @@ package com.gromyk.roomcodelabs.ui
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.gromyk.roomcodelabs.R
 import com.gromyk.roomcodelabs.WordViewModel
 import com.gromyk.roomcodelabs.model.DBWord
+import com.gromyk.roomcodelabs.ui.base.BaseFragment
 import kotlinx.android.synthetic.main.add_word_layout.*
 
 /**
  * Created by Yuriy Gromyk on 11/16/18.
  */
 
-class AddWordFragment : Fragment() {
+class AddWordFragment : BaseFragment() {
     companion object {
         fun newInstance() = AddWordFragment()
     }
@@ -38,8 +39,13 @@ class AddWordFragment : Fragment() {
 
     private fun initView() {
         addWordButton.setOnClickListener {
-            viewModel.insert(DBWord(word =  wordEditText.text.toString()))
-            activity?.supportFragmentManager?.popBackStack()
+            if (wordEditText.text.toString().isNotBlank()) {
+                wordEditText.error = null
+                viewModel.insert(DBWord(word = wordEditText.text.toString()))
+                findNavController().navigateUp()
+            } else {
+                wordEditText.error = "text cannot be empty!"
+            }
         }
     }
 }
