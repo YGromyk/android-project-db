@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/splashFragment">
+
+    <fragment android:id="@+id/addWordFragment"
+              android:name="com.gromyk.roomcodelabs.ui.AddWordFragment"
+              android:label="AddWordFragment"
+    />
+
+    <fragment android:id="@+id/wordsListFragment"
+              android:name="com.gromyk.roomcodelabs.ui.WordsListFragment"
+              android:label="WordsListFragment">
+        <action
+                app:enterAnim="@anim/fui_slide_in_right"
+                app:popEnterAnim="@anim/fui_slide_in_right"
+                app:popExitAnim="@anim/fui_slide_out_left"
+                app:exitAnim="@anim/fui_slide_out_left"
+                android:id="@+id/action_wordsListFragment_to_addWordFragment2"
+                app:destination="@id/addWordFragment"/>
+        <argument android:name="@string/new_word" app:argType="string"/>
+    </fragment>
+
+    <fragment android:id="@+id/splashFragment" android:name="com.gromyk.roomcodelabs.ui.SplashFragment"
+              android:label="SplashFragment">
+        <action app:enterAnim="@anim/fui_slide_in_right"
+                app:popEnterAnim="@anim/fui_slide_in_right"
+                app:popExitAnim="@anim/fui_slide_out_left"
+                app:exitAnim="@anim/fui_slide_out_left" android:id="@+id/action_splashFragment_to_wordsListFragment"
+                app:destination="@id/wordsListFragment"/>
+        <action app:enterAnim="@anim/fui_slide_in_right"
+                app:popEnterAnim="@anim/fui_slide_in_right"
+                app:popExitAnim="@anim/fui_slide_out_left"
+                app:exitAnim="@anim/fui_slide_out_left"
+                android:id="@+id/action_splashFragment_to_authFragment"
+                app:destination="@id/authFragment"
+        />
+    </fragment>
+
+    <fragment android:id="@+id/authFragment" android:name="com.gromyk.roomcodelabs.ui.auth.AuthFragment"
+              android:label="AuthFragment">
+        <action app:enterAnim="@anim/fui_slide_in_right"
+                app:popEnterAnim="@anim/fui_slide_in_right"
+                app:popExitAnim="@anim/fui_slide_out_left"
+                app:exitAnim="@anim/fui_slide_out_left"
+                android:id="@+id/action_authFragment_to_signUpFragment"
+                app:destination="@id/signUpFragment"
+        />
+        <action app:enterAnim="@anim/fui_slide_in_right"
+                app:popEnterAnim="@anim/fui_slide_in_right"
+                app:popExitAnim="@anim/fui_slide_out_left"
+                app:exitAnim="@anim/fui_slide_out_left"
+                android:id="@+id/action_authFragment_to_signInFragment"
+                app:destination="@id/signInFragment"
+        />
+    </fragment>
+
+    <fragment android:id="@+id/signUpFragment"
+              android:name="com.gromyk.roomcodelabs.ui.auth.SignUpFragment"
+              android:label="SignUpFragment">
+        <action app:enterAnim="@anim/fui_slide_in_right"
+                app:popExitAnim="@anim/fui_slide_out_left"
+                app:exitAnim="@anim/fui_slide_out_left"
+                android:id="@+id/action_signUpFragment_to_signInFragment"
+                app:destination="@id/signInFragment"
+        />
+    </fragment>
+
+    <fragment
+            android:id="@+id/signInFragment"
+            android:name="com.gromyk.roomcodelabs.ui.auth.SignInFragment"
+            android:label="SignInFragment">
+        <action
+                app:enterAnim="@anim/fui_slide_in_right"
+                app:popEnterAnim="@anim/fui_slide_in_right"
+                app:popExitAnim="@anim/fui_slide_out_left"
+                app:exitAnim="@anim/fui_slide_out_left"
+                android:id="@+id/action_signInFragment_to_wordsListFragment"
+                app:destination="@id/wordsListFragment"
+        />
+    </fragment>
+
+</navigation>
