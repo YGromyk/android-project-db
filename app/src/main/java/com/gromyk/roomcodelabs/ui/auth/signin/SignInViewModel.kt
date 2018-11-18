@@ -1,4 +1,4 @@
-package com.gromyk.roomcodelabs.ui.auth
+package com.gromyk.roomcodelabs.ui.auth.signin
 
 import android.arch.lifecycle.MutableLiveData
 import com.gromyk.api.Server
@@ -28,7 +28,10 @@ class SignInViewModel : BaseViewModel() {
             ?.observeOn(Schedulers.io())
             ?.subscribeOn(AndroidSchedulers.mainThread())
             ?.subscribe(
-                { signInData.value = it.body() },
+                {
+                    signInData.value = it.body()
+                    Timber.i("$it")
+                },
                 { Timber.e(it) }
             )
             ?.addTo(disposable)
