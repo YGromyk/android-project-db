@@ -69,7 +69,7 @@
 
     <fragment
             android:id="@+id/signInFragment"
-            android:name="com.gromyk.roomcodelabs.ui.auth.SignInFragment"
+            android:name="com.gromyk.roomcodelabs.ui.auth.signin.SignInFragment"
             android:label="SignInFragment">
         <action
                 app:enterAnim="@anim/fui_slide_in_right"
@@ -78,6 +78,12 @@
                 app:exitAnim="@anim/fui_slide_out_left"
                 android:id="@+id/action_signInFragment_to_wordsListFragment"
                 app:destination="@id/wordsListFragment"
+        />
+        <argument
+                android:name="@string/oAuthCode"
+                app:argType="string"
+                app:nullable="true"
+                android:defaultValue="@null"
         />
     </fragment>
 
