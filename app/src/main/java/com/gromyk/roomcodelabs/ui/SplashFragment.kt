@@ -23,8 +23,8 @@ class SplashFragment : BaseFragment() {
         return inflater.inflate(R.layout.splash_fragment, container, false)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         startLoginScreen()
     }
 

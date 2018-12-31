@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -68,6 +68,12 @@ dependencies {
 
     // firebase
     implementation 'com.firebaseui:firebase-ui-auth:4.1.0'
+    compile project(path: ':api')
+    // rx
+    implementation group: 'io.reactivex.rxjava2', name: 'rxjava', version: "${rxJavaVersion}"
+    implementation group: 'io.reactivex.rxjava2', name: 'rxandroid', version: "${rxAndroidVersion}"
 
+    //timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 
 }

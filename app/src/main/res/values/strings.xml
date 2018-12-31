@@ -13,4 +13,6 @@
     <string name="sign_up">Sign up</string>
     <string name="already_have_an_account_sign_in">Already have an account? Sign in.</string>
     <string name="confirm_password">Confirm password</string>
+
+    <string name="oAuthCode">oAuthCode</string>
 </resources>
